@@ -1,23 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="css_code.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>woof</title>
+    <title>Website</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #cursor {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: black;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.1s ease;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        #btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        #btn:hover {
+            background-color: #0056b3;
+        }
+
+        #btn:active {
+            transform: translate(-50%, -50%) scale(0.9);
+        }
+    </style>
 </head>
 <body>
-        <a href="vidoe2.0.html">home</a>
-   <h1>am the <strong>one</strong></h1>
+    <div id="cursor"></div>
+    <button id="btn">Click me</button>
 
-    <p>idk what to say
-        <ul><em>yes</em></ul>
-    </p>
-    <img src ="images/cat.jpg" width="400" 
-    height="400" />
-    
+    <script>
+        const cursor = document.getElementById('cursor');
 
-    
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.pageX + 'px';
+            cursor.style.top = e.pageY + 'px';
+        });
+
+        document.addEventListener('mousedown', () => {
+            cursor.style.transform = 'translate(-50%, -50%) scale(0.7)';
+        });
+
+        document.addEventListener('mouseup', () => {
+            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+        });
+    </script>
 </body>
 </html>
